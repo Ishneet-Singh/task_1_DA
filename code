@@ -1,0 +1,58 @@
+import numpy as np
+import pandas as pd
+
+# reading data
+df = pd.read_csv("marketing_campaign.csv.xls",sep="\t")
+
+# Check for missing values in each column
+print(df.isnull().sum())
+
+# Total missing values in the dataset
+print("Total missing values:", df.isnull().sum().sum())
+
+# Rows where Income is missing
+print(df[df["Income"].isnull()])
+
+#replacing missing values with median
+median_income = df["Income"].median()
+df["Income"] = df["Income"].fillna(median_income)
+
+#verify
+print(df.isnull().sum())
+
+# Check how many duplicate rows exist
+print("Number of duplicate rows:", df.duplicated().sum())
+
+# Convert all text to lowercase (or title case)
+df["Marital_Status"] = df["Marital_Status"].str.strip().str.lower()
+df["Education"] = df["Education"].str.strip().str.title()
+
+# Convert to datetime object
+df["Dt_Customer"] = pd.to_datetime(df["Dt_Customer"], dayfirst=True)
+
+# Format it consistently as dd-mm-yyyy
+df["Dt_Customer"] = df["Dt_Customer"].dt.strftime("%d-%m-%Y")
+
+#verify
+print(df[["Marital_Status", "Education", "Dt_Customer"]].head())
+
+# Convert all column names to lowercase, strip spaces, and replace spaces with underscores
+df.columns = (
+    df.columns
+    .str.strip()              # remove leading/trailing spaces
+    .str.lower()              # make all lowercase
+)
+
+print(df.columns.tolist())
+print(df.dtypes)
+
+import datetime as dt
+
+current_year = dt.datetime.now().year
+df["age"] = current_year - df["year_birth"]
+df["age"] = df["age"].astype(int)   # ensure integer
+df["dt_customer"] = pd.to_datetime(df["dt_customer"], dayfirst=True)
+df["income"] = pd.to_numeric(df["income"], errors="coerce")
+df["education"] = df["education"].astype("category")
+df["marital_status"] = df["marital_status"].astype("category")
+print(df.dtypes)
