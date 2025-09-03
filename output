@@ -1,0 +1,9 @@
+## 📊 Cleaned Dataset Preview
+
+| ID   | year_birth | education   | marital_status | income  | age | dt_customer |
+|------|------------|-------------|----------------|---------|-----|-------------|
+| 5524 | 1957       | Graduation  | Single         | 58138.0 | 68  | 2012-09-04  |
+| 2174 | 1954       | Graduation  | Single         | 46344.0 | 71  | 2014-03-08  |
+| 4141 | 1965       | Graduation  | Together       | 71613.0 | 60  | 2013-08-21  |
+| 6182 | 1984       | Graduation  | Together       | 26646.0 | 41  | 2014-02-10  |
+| 5324 | 1981       | PhD         | Married        | 58293.0 | 44  | 2014-01-19  |
