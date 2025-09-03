@@ -9,6 +9,7 @@ The goal is to prepare raw data for **exploratory data analysis (EDA)** and pote
 
 ## 📌 Dataset
 The dataset (`marketing_campaign.csv`) contains customer information such as demographics, education, marital status, spending, and campaign responses.  
+Download the dataset from kaggle(https://www.kaggle.com/datasets/imakash3011/customer-personality-analysis/data#:~:text=Download)
 
 Key columns include:
 - `Year_Birth`
